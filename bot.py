@@ -22,6 +22,7 @@ DATABASE_URL     = os.environ["DATABASE_URL"]
 SOURCE_CHAT_ID   = int(os.environ["SOURCE_CHAT_ID"])
 ADMIN_ID         = int(os.environ["ADMIN_ID"])
 ADMIN_USERNAME   = os.environ.get("ADMIN_USERNAME", "@SynaX_69")
+ADMIN_USERNAME_MD = ADMIN_USERNAME.replace("_", "\\_")  # Markdown-safe
 SUPPORT_USERNAME = os.environ.get("SUPPORT_USERNAME", "@Olly_077")   # support button username
 
 AUTO_DELETE_SECONDS = 600
@@ -37,7 +38,7 @@ BUY_PREMIUM_MSG = (
     f"🚫 Aapke *{APPROVAL_DAYS} din* poore ho gaye hain.\n\n"
     "🔓 *Premium Access Kaise Lein?*\n"
     "👉 Admin se sampark karein aur apna subscription renew karein.\n\n"
-    f"📩 Admin: {ADMIN_USERNAME}\n"
+    f"📩 Admin: {ADMIN_USERNAME_MD}\n"
     "━━━━━━━━━━━━━━━━━━━━\n"
     "✨ _Premium members ko unlimited access milta hai!_"
 )
@@ -198,7 +199,7 @@ async def expiry_checker(bot: Bot):
                     f"━━━━━━━━━━━━━━━━━━━━\n"
                     f"📅 Aapka premium *{exp_str}* ko expire ho jayega.\n\n"
                     f"🔓 Ab hi renew karo — admin se sampark karo:\n"
-                    f"📩 {ADMIN_USERNAME}\n"
+                    f"📩 {ADMIN_USERNAME_MD}\n"
                     f"━━━━━━━━━━━━━━━━━━━━\n"
                     f"✨ _Access khatam hone se pehle renew karo!_"
                 )
